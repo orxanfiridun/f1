@@ -53,7 +53,7 @@
   width: 274px;
   height: 49px;
   left: 756px;
-  top: 154px;
+  top: 120px;
 }
 .signup {
   display: flex;
@@ -67,7 +67,7 @@
   width: 239px;
   height: 57px;
   left: 764px;
-  top: 237px;
+  top: 220px;
 
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -100,7 +100,7 @@ img {
   height: 57px;
   color: rgba(0, 0, 0, 0.6);
   left: 1058px;
-  top: 237px;
+  top: 220px;
 
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -122,7 +122,7 @@ img {
   width: 73px;
   height: 31px;
   left: 993px;
-  top: 354px;
+  top: 330px;
 
   font-style: normal;
   font-weight: 400;
@@ -140,7 +140,7 @@ img {
   width: 533px;
   height: 40px;
   left: 764px;
-  top: 424px;
+  top: 400px;
 }
 .fullname input {
   color: rgba(0, 0, 0, 0.3);
@@ -160,7 +160,7 @@ img {
   width: 533px;
   height: 40px;
   left: 764px;
-  top: 525px;
+  top: 500px;
 }
 .surname input {
   color: rgba(0, 0, 0, 0.3);
@@ -179,7 +179,7 @@ img {
   width: 533px;
   height: 40px;
   left: 764px;
-  top: 626px;
+  top: 600px;
   text-align: left;
 }
 .email input {
@@ -199,7 +199,7 @@ img {
   width: 533px;
   height: 40px;
   left: 764px;
-  top: 723px;
+  top: 700px;
 }
 .password input {
   font-style: normal;
@@ -218,7 +218,7 @@ img {
   width: 533px;
   height: 40px;
   left: 764px;
-  top: 823px;
+  top: 800px;
 }
 .repassword input {
   font-style: normal;
@@ -231,13 +231,33 @@ img {
   outline-width: 0;
   color: rgba(0, 0, 0, 0.3);
 }
+.select {
+  position: absolute;
+  font-style: normal;
+  border: none;
+  border-bottom: 1px solid gray !important;
 
+  font-size: 24px;
+  line-height: 29px;
+  width: 533px;
+  height: 40px;
+  outline-width: 0;
+  color: rgba(3, 3, 3, 0.3);
+  left: 764px;
+  top: 900px;
+}
+
+.select .gender {
+  font-weight: 400;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.3);
+}
 .create-account {
   position: absolute;
   width: 533px;
   height: 58px;
   left: 764px;
-  top: 922px;
+  top: 1000px;
 
   background: #bdc6d7;
   border-radius: 8px;
@@ -264,7 +284,7 @@ img {
   width: 342px;
   height: 29px;
   left: 764px;
-  top: 1022px;
+  top: 1110px;
 
   font-style: normal;
   font-weight: 400;

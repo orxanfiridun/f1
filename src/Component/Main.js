@@ -6,6 +6,7 @@ function Main() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRePassword] = useState("");
+  const [gender, setGender] = useState("");
 
   const [errorFullname, setErrorFullname] = useState("");
   const [errorSurname, setErrorSurname] = useState("");
@@ -14,6 +15,12 @@ function Main() {
   const [errorRePassword, setErrorRePassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (gender === "male") {
+      console.log(gender);
+    }
+    if (gender === "female") {
+      console.log(gender);
+    }
     if (fullname !== "") {
       if (fullname.length < 8) {
         setErrorFullname("fullname has min 8 kharakter");
@@ -46,8 +53,10 @@ function Main() {
     if (repassword !== "") {
       if (password !== repassword) {
         setErrorRePassword("check the correctness of the passwords ");
+      } else {
+        setErrorRePassword("");
       }
-      setErrorRePassword("");
+
       console.log(repassword);
     } else {
       setErrorRePassword("repassword is invalid");
@@ -127,6 +136,21 @@ function Main() {
                 <div className="error">{errorRePassword}</div>
               )}
             </div>
+            <select
+              className="select"
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option
+                className="gender"
+                defaultValue="gender"
+                selected
+                disabled
+              >
+                Gender
+              </option>
+              <option value="male">Male</option>
+              <option value="female">Female </option>
+            </select>
             <div className="create-account">
               <button type="submit">Create Account</button>
             </div>
