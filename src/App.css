@@ -8,7 +8,7 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   display: flex;
   width: 1440px;
-  height: 1024px;
+  height: 1200px;
 }
 .main {
   display: flex;
@@ -32,7 +32,6 @@
 }
 
 .uk {
-  font-family: Roboto;
   font-size: 24px;
   font-weight: 400;
   line-height: 28px;
@@ -125,7 +124,6 @@ img {
   left: 993px;
   top: 354px;
 
-  font-family: "Telex";
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
@@ -133,63 +131,123 @@ img {
 
   color: rgba(0, 0, 0, 0.39);
 }
+.input {
+  border-bottom: 1px solid gray !important;
+}
 .fullname {
   position: absolute;
   text-align: left;
   width: 533px;
-  height: 29px;
+  height: 40px;
   left: 764px;
   top: 424px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.fullname input {
+  color: rgba(0, 0, 0, 0.3);
 
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline-width: 0;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
-
+}
+.surname {
+  position: absolute;
+  text-align: left;
+  width: 533px;
+  height: 40px;
+  left: 764px;
+  top: 525px;
+}
+.surname input {
   color: rgba(0, 0, 0, 0.3);
+
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline-width: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
 }
 .email {
   position: absolute;
   width: 533px;
-  height: 29px;
+  height: 40px;
   left: 764px;
-  top: 525px;
+  top: 626px;
   text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-
+}
+.email input {
+  width: 100%;
+  height: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
-
+  border: none;
+  outline-width: 0;
   color: rgba(0, 0, 0, 0.3);
 }
 .password {
   position: absolute;
   text-align: left;
   width: 533px;
-  height: 29px;
+  height: 40px;
   left: 764px;
-  top: 626px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-
+  top: 723px;
+}
+.password input {
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
-
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline-width: 0;
   color: rgba(0, 0, 0, 0.3);
 }
+.repassword {
+  position: absolute;
+  text-align: left;
+  width: 533px;
+  height: 40px;
+  left: 764px;
+  top: 823px;
+}
+.repassword input {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline-width: 0;
+  color: rgba(0, 0, 0, 0.3);
+}
+
 .create-account {
   position: absolute;
   width: 533px;
   height: 58px;
   left: 764px;
-  top: 723px;
+  top: 922px;
 
   background: #bdc6d7;
   border-radius: 8px;
+}
+.create-account button {
+  margin-top: 8px;
+  width: 100%;
+  height: 100;
+  border: none;
+  background-color: #bdc6d7;
 
   font-style: normal;
   font-weight: 700;
@@ -197,9 +255,6 @@ img {
   line-height: 41px;
 
   color: #ffffff;
-}
-.create-account div {
-  margin-top: 8px;
 }
 .already {
   position: absolute;
@@ -209,7 +264,7 @@ img {
   width: 342px;
   height: 29px;
   left: 764px;
-  top: 843px;
+  top: 1022px;
 
   font-style: normal;
   font-weight: 400;
@@ -217,4 +272,9 @@ img {
   line-height: 29px;
 
   color: rgba(0, 0, 0, 0.3);
+}
+.error {
+  width: 533px;
+  height: 40px;
+  color: red;
 }
