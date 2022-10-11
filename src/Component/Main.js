@@ -18,24 +18,29 @@ function Main() {
       if (fullname.length < 8) {
         setErrorFullname("fullname has min 8 kharakter");
       }
+      setErrorFullname("");
       console.log(fullname);
     } else {
       setErrorFullname("fullname is invalid");
     }
     if (surname !== "") {
+      setErrorSurname("");
       console.log(surname);
     } else {
       setErrorSurname("surname is invalid");
     }
     if (email !== "") {
-      if (email !== /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i) {
+      const regex = /^[a-zA-Z0-9]*$/;
+      if (email !== regex.test(email.value)) {
         setErrorEmail("email is not entered true");
       }
+      setErrorEmail("");
       console.log(email);
     } else {
       setErrorEmail("email is invalid");
     }
     if (password !== "") {
+      setErrorPassword("");
       console.log(password);
     } else {
       setErrorPassword("password is invalid");
@@ -44,6 +49,7 @@ function Main() {
       if (password !== repassword) {
         setErrorRePassword("check the correctness of the passwords ");
       }
+      setErrorRePassword("");
       console.log(repassword);
     } else {
       setErrorRePassword("repassword is invalid");
