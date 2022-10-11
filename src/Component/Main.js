@@ -17,8 +17,10 @@ function Main() {
     if (fullname !== "") {
       if (fullname.length < 8) {
         setErrorFullname("fullname has min 8 kharakter");
+      } else {
+        setErrorFullname("");
       }
-      setErrorFullname("");
+
       console.log(fullname);
     } else {
       setErrorFullname("fullname is invalid");
@@ -30,10 +32,6 @@ function Main() {
       setErrorSurname("surname is invalid");
     }
     if (email !== "") {
-      const regex = /^[a-zA-Z0-9]*$/;
-      if (email !== regex.test(email.value)) {
-        setErrorEmail("email is not entered true");
-      }
       setErrorEmail("");
       console.log(email);
     } else {
@@ -78,59 +76,61 @@ function Main() {
             <div className="fbdiv">Sign up with Facebook</div>
           </div>
           <div className="or">- OR -</div>
-          <div className="fullname">
-            <input
-              className="input"
-              onChange={(e) => setFullname(e.target.value)}
-              value={fullname}
-              placeholder="Full name"
-            />
-            {errorFullname && <div className="error">{errorFullname}</div>}
-          </div>
-          <div className="surname">
-            <input
-              className="input"
-              onChange={(e) => setSurname(e.target.value)}
-              value={surname}
-              placeholder="Surname"
-            />
-            {errorSurname && <div className="error">{errorSurname}</div>}
-          </div>
-          <div className="email">
-            <input
-              type="email"
-              className="input"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              placeholder="Email Address"
-            />
-            {errorEmail && <div className="error">{errorEmail}</div>}
-          </div>
-          <div className="password">
-            <input
-              className="input"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              placeholder="Password"
-            />
-            {errorPassword && <div className="error">{errorPassword}</div>}
-          </div>
-          <div className="repassword">
-            <input
-              className="input"
-              type="password"
-              onChange={(e) => setRePassword(e.target.value)}
-              value={repassword}
-              placeholder="Repassword"
-            />
-            {errorRePassword && <div className="error">{errorRePassword}</div>}
-          </div>
-          <div className="create-account">
-            <button type="submit" onClick={handleSubmit}>
-              Create Account
-            </button>
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="fullname">
+              <input
+                className="input"
+                onChange={(e) => setFullname(e.target.value)}
+                value={fullname}
+                placeholder="Full name"
+              />
+              {errorFullname && <div className="error">{errorFullname}</div>}
+            </div>
+            <div className="surname">
+              <input
+                className="input"
+                onChange={(e) => setSurname(e.target.value)}
+                value={surname}
+                placeholder="Surname"
+              />
+              {errorSurname && <div className="error">{errorSurname}</div>}
+            </div>
+            <div className="email">
+              <input
+                type="email"
+                className="input"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                placeholder="Email Address"
+              />
+              {errorEmail && <div className="error">{errorEmail}</div>}
+            </div>
+            <div className="password">
+              <input
+                className="input"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                placeholder="Password"
+              />
+              {errorPassword && <div className="error">{errorPassword}</div>}
+            </div>
+            <div className="repassword">
+              <input
+                className="input"
+                type="password"
+                onChange={(e) => setRePassword(e.target.value)}
+                value={repassword}
+                placeholder="Repassword"
+              />
+              {errorRePassword && (
+                <div className="error">{errorRePassword}</div>
+              )}
+            </div>
+            <div className="create-account">
+              <button type="submit">Create Account</button>
+            </div>
+          </form>
           <div className="already">
             <div className="alrhv">Already have a account?</div>
             <div className="login">Log in</div>
