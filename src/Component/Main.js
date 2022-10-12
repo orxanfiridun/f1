@@ -1,67 +1,101 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
+
+import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 function Main() {
-  const [fullname, setFullname] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repassword, setRePassword] = useState("");
-  const [gender, setGender] = useState("");
+  const formSchema = Yup.object().shape({
+    password: Yup.string()
+      .required("Password is mendatory")
+      .min(5, "Password must be at 5 char long"),
+    repassword: Yup.string()
+      .required("Password is mendatory")
+      .oneOf([Yup.ref("password")], "Passwords does not match"),
+    fullName: Yup.string().required("full name is invalid"),
+    surName: Yup.string().required("surname is invalid"),
+    email: Yup.string().required("email is invalid"),
+  });
+  const formOptions = { resolver: yupResolver(formSchema) };
+  const { register, handleSubmit, formState } = useForm(formOptions, {
+    defaultValues: {
+      fullName: "",
+      surName: "",
+      email: "",
+      password: "",
+      repassword: "",
+      gender: "",
+    },
+  });
+  const { errors } = formState;
+  function onSubmit(data) {
+    console.log(data);
+    return false;
+  }
 
-  const [errorFullname, setErrorFullname] = useState("");
-  const [errorSurname, setErrorSurname] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
-  const [errorPassword, setErrorPassword] = useState("");
-  const [errorRePassword, setErrorRePassword] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (gender === "male") {
-      console.log(gender);
-    }
-    if (gender === "female") {
-      console.log(gender);
-    }
-    if (fullname !== "") {
-      if (fullname.length < 8) {
-        setErrorFullname("fullname has min 8 kharakter");
-      } else {
-        setErrorFullname("");
-      }
+  // const onSubmit = (data) => console.log(data);
+  // const [fullname, setFullname] = useState("");
+  // const [surname, setSurname] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [repassword, setRePassword] = useState("");
+  // const [gender, setGender] = useState("");
 
-      console.log(fullname);
-    } else {
-      setErrorFullname("fullname is invalid");
-    }
-    if (surname !== "") {
-      setErrorSurname("");
-      console.log(surname);
-    } else {
-      setErrorSurname("surname is invalid");
-    }
-    if (email !== "") {
-      setErrorEmail("");
-      console.log(email);
-    } else {
-      setErrorEmail("email is invalid");
-    }
-    if (password !== "") {
-      setErrorPassword("");
-      console.log(password);
-    } else {
-      setErrorPassword("password is invalid");
-    }
-    if (repassword !== "") {
-      if (password !== repassword) {
-        setErrorRePassword("check the correctness of the passwords ");
-      } else {
-        setErrorRePassword("");
-      }
+  // const [errorFullname, setErrorFullname] = useState("");
+  // const [errorSurname, setErrorSurname] = useState("");
+  // const [errorEmail, setErrorEmail] = useState("");
+  // const [errorPassword, setErrorPassword] = useState("");
+  // const [errorRePassword, setErrorRePassword] = useState("");
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (gender === "male") {
+  //     console.log(gender);
+  //   }
+  //   if (gender === "female") {
+  //     console.log(gender);
+  //   }
+  //   if (fullname !== "") {
+  //     if (fullname.length < 8) {
+  //       setErrorFullname("fullname has min 8 kharakter");
+  //     } else {
+  //       setErrorFullname("");
+  //     }
 
-      console.log(repassword);
-    } else {
-      setErrorRePassword("repassword is invalid");
-    }
-  };
+  //     console.log(fullname);
+  //   } else {
+  //     setErrorFullname("fullname is invalid");
+  //   }
+  //   if (surname !== "") {
+  //     setErrorSurname("");
+  //     console.log(surname);
+  //   } else {
+  //     setErrorSurname("surname is invalid");
+  //   }
+  //   if (email !== "") {
+  //     setErrorEmail("");
+  //     console.log(email);
+  //   } else {
+  //     setErrorEmail("email is invalid");
+  //   }
+  //   if (password !== "") {
+  //     setErrorPassword("");
+  //     console.log(password);
+  //   } else {
+  //     setErrorPassword("password is invalid");
+  //   }
+  //   if (repassword !== "") {
+  //     if (password !== repassword) {
+  //       setErrorRePassword("check the correctness of the passwords ");
+  //     } else {
+  //       setErrorRePassword("");
+  //     }
+
+  //     console.log(repassword);
+  //   } else {
+  //     setErrorRePassword("repassword is invalid");
+  //   }
+  // };
 
   return (
     <div className="main">
@@ -85,60 +119,74 @@ function Main() {
             <div className="fbdiv">Sign up with Facebook</div>
           </div>
           <div className="or">- OR -</div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="fullname">
               <input
-                className="input"
-                onChange={(e) => setFullname(e.target.value)}
-                value={fullname}
+                className={`input ${errors.fullName ? "error" : ""}`}
+                // onChange={(e) => setFullname(e.target.value)}
+                //value={fullname}
+                {...register("fullName")}
                 placeholder="Full name"
               />
-              {errorFullname && <div className="error">{errorFullname}</div>}
+              <div className="error">{errors.fullName?.message}</div>
+              {/* {errorFullname && <div className="error">{errorFullname}</div>} */}
             </div>
             <div className="surname">
               <input
-                className="input"
-                onChange={(e) => setSurname(e.target.value)}
-                value={surname}
+                className={`input ${errors.surName ? "error" : ""}`}
+                // onChange={(e) => setSurname(e.target.value)}
+                // value={surname}
+                {...register("surName", { required: true })}
+                aria-invalid={errors.surName ? "true" : "false"}
                 placeholder="Surname"
               />
-              {errorSurname && <div className="error">{errorSurname}</div>}
+              <div className="error">{errors.surName?.message}</div>
+              {/* {errorSurname && <div className="error">{errorSurname}</div>} */}
             </div>
             <div className="email">
               <input
                 type="email"
-                className="input"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                className={`input ${errors.email ? "error" : ""}`}
+                // onChange={(e) => setEmail(e.target.value)}
+                // value={email}
+                {...register("email", {
+                  required: "Email Address is required",
+                })}
                 placeholder="Email Address"
               />
-              {errorEmail && <div className="error">{errorEmail}</div>}
+              <div className="error">{errors.email?.message}</div>
+              {/* {errorEmail && <div className="error">{errorEmail}</div>} */}
             </div>
             <div className="password">
               <input
-                className="input"
+                className={` input  ${errors.password ? "is-invalid" : ""}`}
                 type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
+                // onChange={(e) => setPassword(e.target.value)}
+                // value={password}
+                {...register("password")}
                 placeholder="Password"
               />
-              {errorPassword && <div className="error">{errorPassword}</div>}
+              <div className="error">{errors.password?.message}</div>
+              {/* {errorPassword && <div className="error">{errorPassword}</div>} */}
             </div>
             <div className="repassword">
               <input
-                className="input"
+                className={` input  ${errors.password ? "is-invalid" : ""}`}
                 type="password"
-                onChange={(e) => setRePassword(e.target.value)}
-                value={repassword}
+                // onChange={(e) => setRePassword(e.target.value)}
+                // value={repassword}
                 placeholder="Repassword"
+                {...register("repassword")}
               />
-              {errorRePassword && (
+              <div className="error">{errors.repassword?.message}</div>
+              {/* {errorRePassword && (
                 <div className="error">{errorRePassword}</div>
-              )}
+              )} */}
             </div>
             <select
               className="select"
-              onChange={(e) => setGender(e.target.value)}
+              {...register("gender")}
+              // onChange={(e) => setGender(e.target.value)}
             >
               <option
                 className="gender"
