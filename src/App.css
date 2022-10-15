@@ -19,9 +19,9 @@ html {
 }
 .LeftSide {
   width: 40%;
-  height: 700px;
-  border: 1px solid black;
-  margin-right: -20px;
+  height: 1100px;
+
+  margin-right: -30px;
 }
 .LeftSide img {
   width: 100%;
@@ -29,12 +29,12 @@ html {
 }
 .RightSide {
   width: 62%;
-  border: 1px solid black;
+
   padding: 41px 129px;
   display: flex;
   flex-direction: column;
   background: white;
-  border-radius: 15px;
+  border-radius: 35px;
 }
 
 h1 {

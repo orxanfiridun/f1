@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Input from "./Input";
-import leftSide from "../components/assets/leftSide.jpg";
 
 function Main() {
   const formSchema = Yup.object().shape({
@@ -39,7 +38,7 @@ function Main() {
   return (
     <div className="main">
       <div className="LeftSide">
-        <img src={leftSide} alt={leftSide} />
+        <img src="/leftSide.jpg" alt="leftSide" />
       </div>
       <div className="RightSide">
         <div className="language">English (UK)</div>
