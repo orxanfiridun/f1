@@ -104,9 +104,9 @@ function Main() {
             <button type="submit">Create Account</button>
           </div>
         </form>
-        <div className="already">
-          <div className="alrhv">Already have a account?</div>
-          <div className="login">Log in</div>
+        <div className="already-div">
+          <div className="account-button">Already have a account? </div>
+          <div className="login-div"> Log in</div>
         </div>
       </div>
     </div>
