@@ -18,6 +18,7 @@ function Main() {
     surName: Yup.string().required("surname is invalid"),
     email: Yup.string().required("email is invalid"),
   });
+
   const formOptions = { resolver: yupResolver(formSchema) };
   const { register, handleSubmit, formState } = useForm(formOptions, {
     defaultValues: {

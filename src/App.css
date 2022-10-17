@@ -105,7 +105,7 @@ h1 {
 .already-div {
   margin-top: 35px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 342px;
   height: 29px;
   font-style: normal;
